@@ -3,6 +3,7 @@
 #include "core/logger.h"
 #include "platform/platform.h"
 
+// TODO: Custom string lib
 #include <string.h>
 #include <stdio.h>
 
@@ -35,6 +36,7 @@ static struct memory_stats stats;
 void initialize_memory() {
     platform_zero_memory(&stats, sizeof(stats));
 }
+
 void shutdown_memory() {
 }
 

@@ -2,7 +2,6 @@
 
 #include <entry.h>
 
-// TODO: Remove this
 #include <core/kmemory.h>
 
 // Define the function to create a game

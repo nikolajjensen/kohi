@@ -2,6 +2,7 @@
 
 #include "core/application.h"
 #include "core/logger.h"
+#include "core/kmemory.h"
 #include "game_types.h"
 #include "core/kmemory.h"
 
