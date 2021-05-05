@@ -94,6 +94,10 @@ b8 application_run() {
                 break;
             }
 
+            // NOTE: Input update/state copying should always be handled
+            // after any input should be recorded; I.E. before this line.
+            // As a safety, input is the last thing to be updated before
+            // this frame ends.
             input_update(0);
         }
     }
