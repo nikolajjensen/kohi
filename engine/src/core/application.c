@@ -112,10 +112,10 @@ b8 application_run() {
 
     app_state.is_running = FALSE;
 
+    // Shutdown event system.
     event_unregister(EVENT_CODE_APPLICATION_QUIT, 0, application_on_event);
     event_unregister(EVENT_CODE_KEY_PRESSED, 0, application_on_key);
     event_unregister(EVENT_CODE_KEY_RELEASED, 0, application_on_key);
-
     event_shutdown();
     input_shutdown();
 
