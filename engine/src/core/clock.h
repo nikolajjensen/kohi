@@ -1,5 +1,4 @@
 #pragma once
-
 #include "defines.h"
 
 typedef struct clock {

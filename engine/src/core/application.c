@@ -125,6 +125,7 @@ b8 application_run() {
                 break;
             }
 
+            // TODO: refactor packet creation
             render_packet packet;
             packet.delta_time = delta;
             renderer_draw_frame(&packet);
