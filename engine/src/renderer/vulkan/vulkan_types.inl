@@ -2,6 +2,7 @@
 
 #include "core/asserts.h"
 #include "defines.h"
+#include "core/asserts.h"
 
 #include <vulkan/vulkan.h>
 
@@ -18,5 +19,4 @@ typedef struct vulkan_context {
 #if defined(_DEBUG)
     VkDebugUtilsMessengerEXT debug_messenger;
 #endif
-
 } vulkan_context;

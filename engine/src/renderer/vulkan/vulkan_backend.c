@@ -4,6 +4,11 @@
 #include "vulkan_platform.h"
 
 #include "core/logger.h"
+#include "core/kstring.h"
+
+#include "containers/darray.h"
+
+#include "platform/platform.h"
 
 #include "core/kstring.h"
 #include "containers/darray.h"
@@ -93,7 +98,7 @@ b8 vulkan_renderer_backend_initialize(renderer_backend* backend, const char* app
     create_info.ppEnabledLayerNames = required_validation_layer_names;
 
     VK_CHECK(vkCreateInstance(&create_info, context.allocator, &context.instance));
-    KDEBUG("Vulkan instance created.");
+    KINFO("Vulkan Instance created.");
 
     // Debugger
 #if defined(_DEBUG)

@@ -49,6 +49,6 @@
         "tuple": "cpp",
         "utility": "cpp",
         "kmemory.h": "c",
-        "event.h": "c"
+        "defines.h": "c"
     }
 }

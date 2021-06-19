@@ -310,7 +310,7 @@ void platform_sleep(u64 ms) {
 }
 
 void platform_get_required_extension_names(const char*** names_darray) {
-    darray_push(*names_darray, &"VK_KHR_xcb_surface");  // VK_KHR_xlib_surface
+    darray_push(*names_darray, &"VK_KHR_xcb_surface");  // VK_KHR_xlib_surface?
 }
 
 // Key translation
