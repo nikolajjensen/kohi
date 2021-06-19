@@ -38,6 +38,7 @@ typedef struct internal_state {
     xcb_screen_t* screen;
     xcb_atom_t wm_protocols;
     xcb_atom_t wm_delete_win;
+    VkSurfaceKHR surface;
 } internal_state;
 
 // Key translation

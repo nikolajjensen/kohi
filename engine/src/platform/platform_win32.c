@@ -13,7 +13,7 @@
 #include <windowsx.h>  // param input extraction
 #include <stdlib.h>
 
-// For surface creation.
+// For surface creation
 #include <vulkan/vulkan.h>
 #include <vulkan/vulkan_win32.h>
 #include "renderer/vulkan/vulkan_types.inl"
@@ -197,7 +197,12 @@ void platform_get_required_extension_names(const char ***names_darray) {
     darray_push(*names_darray, &"VK_KHR_win32_surface");
 }
 
+<<<<<<< HEAD
 b8 platform_create_vulkan_surface(struct platform_state *plat_state, struct vulkan_context *context) {
+=======
+// Surface creation for Vulkan
+b8 platform_create_vulkan_surface(platform_state *plat_state, vulkan_context *context) {
+>>>>>>> faaee72 (015 Surface and Physical Device)
     // Simply cold-cast to the known type.
     internal_state *state = (internal_state *)plat_state->internal_state;
 
