@@ -35,3 +35,12 @@ See the setup videos in the series for Windows or Linux for details.
 
 ## .goal
 The goal here is simple, to have a game engine capable of making games. Once the project is far enough along, this will be done as a series on my YouTube channel as well.
+
+
+## Git workflow
+
+1. `git checkout my-progress`
+2. Code a video.
+3. `git add -A` and commit.
+3. `git cherry-pick <hash>` where the hash is of the video commit.
+4. Resolve conflicts (if any) and run `git cherry-pick --continue` to finish.
