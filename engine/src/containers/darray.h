@@ -77,7 +77,3 @@ KAPI void* _darray_insert_at(void* array, u64 index, void* value_ptr);
 
 #define darray_length_set(array, value) \
     _darray_field_set(array, DARRAY_LENGTH, value)
-<<<<<<< HEAD
-=======
-    
->>>>>>> 9e45280 (Event system and darray)
