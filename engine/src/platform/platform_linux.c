@@ -7,6 +7,8 @@
 #include "core/event.h"
 #include "core/input.h"
 
+#include "containers/darray.h"
+
 #include <xcb/xcb.h>
 #include <X11/keysym.h>
 #include <X11/XKBlib.h>  // sudo apt-get install libx11-dev
@@ -195,12 +197,12 @@ b8 platform_pump_messages(platform_state* plat_state) {
             case XCB_KEY_PRESS:
             case XCB_KEY_RELEASE: {
                 // Key press event - xcb_key_press_event_t and xcb_key_release_event_t are the same
-                xcb_key_press_event_t *kb_event = (xcb_key_press_event_t *)event;
+                xcb_key_press_event_t* kb_event = (xcb_key_press_event_t*)event;
                 b8 pressed = event->response_type == XCB_KEY_PRESS;
                 xcb_keycode_t code = kb_event->detail;
                 KeySym key_sym = XkbKeycodeToKeysym(
                     state->display,
-                    (KeyCode)code,  //event.xkey.keycode,
+                    (KeyCode)code,  // event.xkey.keycode,
                     0,
                     code & ShiftMask ? 1 : 0);
 
@@ -211,7 +213,7 @@ b8 platform_pump_messages(platform_state* plat_state) {
             } break;
             case XCB_BUTTON_PRESS:
             case XCB_BUTTON_RELEASE: {
-                xcb_button_press_event_t *mouse_event = (xcb_button_press_event_t *)event;
+                xcb_button_press_event_t* mouse_event = (xcb_button_press_event_t*)event;
                 b8 pressed = event->response_type == XCB_BUTTON_PRESS;
                 buttons mouse_button = BUTTON_MAX_BUTTONS;
                 switch (mouse_event->detail) {
@@ -233,7 +235,7 @@ b8 platform_pump_messages(platform_state* plat_state) {
             } break;
             case XCB_MOTION_NOTIFY: {
                 // Mouse move
-                xcb_motion_notify_event_t *move_event = (xcb_motion_notify_event_t *)event;
+                xcb_motion_notify_event_t* move_event = (xcb_motion_notify_event_t*)event;
 
                 // Pass over to the input subsystem.
                 input_process_mouse_move(move_event->event_x, move_event->event_y);
@@ -307,6 +309,10 @@ void platform_sleep(u64 ms) {
 #endif
 }
 
+void platform_get_required_extension_names(const char*** names_darray) {
+    darray_push(*names_darray, &"VK_KHR_xcb_surface");  // VK_KHR_xlib_surface
+}
+
 // Key translation
 keys translate_keycode(u32 x_keycode) {
     switch (x_keycode) {
@@ -316,8 +322,8 @@ keys translate_keycode(u32 x_keycode) {
             return KEY_ENTER;
         case XK_Tab:
             return KEY_TAB;
-            //case XK_Shift: return KEY_SHIFT;
-            //case XK_Control: return KEY_CONTROL;
+            // case XK_Shift: return KEY_SHIFT;
+            // case XK_Control: return KEY_CONTROL;
 
         case XK_Pause:
             return KEY_PAUSE;
